@@ -42,14 +42,6 @@ download_files()
 
 
 echo ""
-echo "Install prerequisites."
-read -p "Do you want to install prerequisites (y/n)? " yn
-case $yn in
-    [Yy]* ) install_update;;
-    [Nn]* ) echo "Skipping prerequisites installation...";;
-    * ) echo "Invalid input. Skipping prerequisites installation...";;
-esac
-
 echo ""
 echo "Install Script code from repo aryo."
 
