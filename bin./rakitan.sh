@@ -1,6 +1,6 @@
 #!/bin/bash
 # GPIO Founder Lutfa Ilham
-# Internet Monitor for Huawei
+# Internet Monitor for Modem Rakitan
 # by Aryo Brokolly (youtube)
 # 1.0
 
@@ -9,8 +9,8 @@ if [ "$(id -u)" != "0" ]; then
   exit 1
 fi
 
-SERVICE_NAME="Huawei Monitor"
-CONFIG_FILE="/etc/config/huawey"
+SERVICE_NAME="Rakitan Monitor"
+CONFIG_FILE="/etc/config/rakitanconf"
 DEFAULT_CHECK_INTERVAL=1
 
 if [ -f "$CONFIG_FILE" ]; then
@@ -35,7 +35,7 @@ function loop() {
     fi
 
     if [ "$lan_off_timer" -ge "$LAN_OFF_DURATION" ]; then
-      echo "LAN off selama $LAN_OFF_DURATION detik, menjalankan huawei.py ..."
+      echo "LAN off selama $LAN_OFF_DURATION detik, menjalankan Rakitan Monitor ..."
       $MODEM_PATH
       lan_off_timer=0 
     fi
@@ -46,12 +46,12 @@ function loop() {
 
 function start() {
   echo -e "Starting ${SERVICE_NAME} service ..."
-  screen -AmdS huawei-monitor "${0}" -l
+  screen -AmdS rakitan-monitor "${0}" -l
 }
 
 function stop() {
   echo -e "Stopping ${SERVICE_NAME} service ..."
-  kill $(screen -list | grep huawei-monitor | awk -F '[.]' {'print $1'}) 2>/dev/null || echo "Service not running"
+  kill $(screen -list | grep rakitan-monitor | awk -F '[.]' {'print $1'}) 2>/dev/null || echo "Service not running"
 }
 
 function usage() {
