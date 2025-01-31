@@ -29,7 +29,7 @@ download_files()
    	wget -O $MODEL/rakitan.lua $URL/model/rakitan.lua
 	clear
 	sleep 1
- 	wget -O $DIR/rakitan $URL/rakitan.sh && chmod +x $DIR/rakitan
+ 	wget -O $DIR/rakitan $URL/bin/rakitan.sh && chmod +x $DIR/rakitan
         clear
 	sleep 1
  	wget -O $CONF/rakitanconf $URL/rakitanconf
