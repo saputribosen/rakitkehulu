@@ -1,17 +1,13 @@
 local fs = require("nixio.fs")
 
-map = Map("rakitan", "Rakitan Configuration", "Configure Rakitan.")
+map = Map("rakitanconf", "Rakitan Configuration", "Configure Rakitan.")
 map.description = [[
 <p>This tool helps to configure settings for various rakitan modem types including Dell DW5821e, Lt4220, L860gl, L850GL.</p>
 <br>
 <p>Tutorial this <a href="https://bit.ly/aryochannel" target="_blank">HERE</a></p>
 ]]
 
-section = map:section(NamedSection, "settings", "rakitan", "Settings")
-section.addremove = false
-section.anonymous = true
-
-section = map:section(NamedSection, "settings", "rakitanconf", "Telegram")
+section = map:section(NamedSection, "settings", "rakitanconf", "Telegram Config")
 section.addremove = false
 section.anonymous = true
 
@@ -29,7 +25,7 @@ option.datatype = "integer"
 option.default = 0
 option.placeholder = "Message Thread ID Telegram"
 
-section = map:section(NamedSection, "settings", "rakitanconf", "Duration")
+section = map:section(NamedSection, "settings", "rakitanconf", "Duration Settings")
 section.addremove = false
 section.anonymous = true
 
