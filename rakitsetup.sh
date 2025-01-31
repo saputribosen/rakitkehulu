@@ -5,16 +5,16 @@ DIR=/usr/bin
 CONF=/etc/config
 MODEL=/usr/lib/lua/luci/model/cbi
 CON=/usr/lib/lua/luci/controller
-URL=https://raw.githubusercontent.com/saputribosen/1clickhuawei/main
+URL=https://raw.githubusercontent.com/saputribosen/rakitkehulu/main
 
 
 
 finish(){
 clear
 	echo ""
-    echo "INSTALL SUCCESSFULLY ;)"
+    echo "INSTALL RAKITAN MONITOR SUCCESSFULLY ;)"
     echo ""
-    sleep 3
+    sleep 5
     clear
     echo "Youtube : ARYO BROKOLLY"
     echo ""
