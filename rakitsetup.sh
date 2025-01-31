@@ -8,23 +8,6 @@ CON=/usr/lib/lua/luci/controller
 URL=https://raw.githubusercontent.com/saputribosen/1clickhuawei/main
 
 
-install_update(){
-echo "Update and install prerequisites"
-clear
-opkg update
-sleep 1
-clear
-opkg install python3-pip
-sleep 1
-clear
-pip3 install requests
-sleep 1
-clear
-pip3 install huawei-lte-api
-sleep 1
-pip install asyncio && pip install python-telegram-bot && pip install huawei-lte-api && pip install requests && opkg install git && opkg install git-http
-clear
-}
 
 finish(){
 clear
@@ -41,8 +24,6 @@ clear
 download_files()
 {
     	clear
-        mv $DIR/huawei.py $DIR/huawei_x.py
-	sleep 3
   	echo "Downloading files from repo.."
    	wget -O $MODEL/huawey.lua $URL/cbi_model/huawey.lua
 	clear
