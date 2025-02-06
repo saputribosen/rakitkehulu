@@ -16,7 +16,6 @@ clear
     echo "INSTALL RAKITAN MONITOR SUCCESSFULLY ;)"
     echo ""
     sleep 5
-    clear
     echo "Youtube : ARYO BROKOLLY"
     echo ""
     echo ""
