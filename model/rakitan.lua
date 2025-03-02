@@ -1,13 +1,13 @@
 local fs = require("nixio.fs")
 
-map = Map("rakitanconf", "Rakitan Configuration", "Configure Rakitan.")
+map = Map("telegram", "Rakitan Configuration", "Configure Rakitan.")
 map.description = [[
 <p>This tool helps to configure settings for various rakitan modem types including Dell DW5821e, Lt4220, L860gl, L850GL.</p>
 <br>
 <p>Tutorial this <a href="https://bit.ly/aryochannel" target="_blank">HERE</a></p>
 ]]
 
-section = map:section(NamedSection, "settings", "rakitanconf", "Telegram Config")
+section = map:section(NamedSection, "settings", "telegram", "Telegram Config")
 section.addremove = false
 section.anonymous = true
 
