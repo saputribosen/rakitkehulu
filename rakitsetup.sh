@@ -31,7 +31,13 @@ download_files()
  	wget -O $DIR/rakitan $URL/bin/rakitan.sh && chmod +x $DIR/rakitan
         clear
 	sleep 1
- 	wget -O $CONF/rakitanconf $URL/rakitanconf
+ 	wget -O $DIR/adel $URL/adel && chmod +x $DIR/adel
+        clear
+	sleep 1
+ 	wget -O $DIR/telegram $URL/telegram && chmod +x $DIR/telegram
+        clear
+	sleep 1
+ 	wget -O $CONF/telegram $URL/rakitanconf
         clear
         sleep 1
   	wget -O $CON/rakitan.lua $URL/controller/rakitan.lua && chmod +x $CON/rakitan.lua
