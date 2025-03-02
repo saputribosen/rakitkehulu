@@ -1,0 +1,67 @@
+#!/bin/bash
+
+HOSTNAME=$(ubus call system board | jsonfilter -e '@.hostname')
+
+MODEM_PORT=""
+if [ -e "/dev/ttyACM0" ]; then
+    MODEM_PORT="/dev/ttyACM0"
+    MODEM_NAME="Fibocom L860-GL"
+elif [ -e "/dev/ttyUSB0" ]; then
+    MODEM_PORT="/dev/ttyUSB0"
+    MODEM_NAME="Dell DW5821e"
+else
+    echo "❌ Tidak ada modem terdeteksi di ttyACM0 atau ttyUSB0."
+    exit 1
+fi
+
+get_current_ip() {
+    ubus call network.interface.wan status | jsonfilter -e '@["ipv4-address"][0].address'
+}
+
+# Tunggu sampai IP WAN tersedia sebelum menyimpan IP_BEFORE
+TIMEOUT=20  # Maksimum 20 detik
+WAIT=0
+while [ -z "$(get_current_ip)" ] && [ $WAIT -lt $TIMEOUT ]; do
+    echo "⏳ Menunggu IP WAN..."
+    sleep 2
+    WAIT=$((WAIT+2))
+done
+
+IP_BEFORE=$(get_current_ip)
+[ -z "$IP_BEFORE" ] && IP_BEFORE="Tidak ditemukan"
+
+echo "🌍 IP Sebelumnya: $IP_BEFORE"
+echo "⚙️ Mereset modem $MODEM_NAME di $MODEM_PORT..."
+
+echo "AT+CFUN=4" | atinout - $MODEM_PORT - >/dev/null 2>&1 && {
+    ifdown wan
+}
+sleep 3
+echo "AT+CFUN=1" | atinout - $MODEM_PORT - >/dev/null 2>&1 && {
+    ifup wan
+}
+
+echo "⏳ Menunggu IP baru..."
+sleep 10
+TIMEOUT=40
+WAIT=0
+while [ -z "$(get_current_ip)" ] && [ $WAIT -lt $TIMEOUT ]; do
+    echo "⏳ Menunggu IP baru..."
+    sleep 5
+    WAIT=$((WAIT+5))
+done
+
+IP_AFTER=$(get_current_ip)
+[ -z "$IP_AFTER" ] && IP_AFTER="Tidak ditemukan"
+echo "🌍 IP Baru: $IP_AFTER"
+
+telegram "
+⚙️ Change IP - $HOSTNAME
+===============
+🔰 Modem Name: $MODEM_NAME
+🔰 Current IP: $IP_BEFORE
+🔰 New IP: $IP_AFTER
+
+✅ IP change successfully.
+===============
+👨‍🔧 By Aryo Brokolly"
