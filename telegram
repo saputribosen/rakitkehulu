@@ -22,4 +22,8 @@ if [ "$#" -ne 1 ]; then
 fi
 
 # Send the message 
-curl -s --data "text=$1" --data "chat_id=$CHAT_ID" --data "message_thread_id=$MSGTR" 'https://api.telegram.org/bot'$BOT_TOKEN'/sendMessage' > /dev/null
+if [ -z "$MSGTR" ] || [ "$MSGTR" -eq 0 ]; then
+  curl -s --data "text=$1" --data "chat_id=$CHAT_ID" 'https://api.telegram.org/bot'$BOT_TOKEN'/sendMessage' > /dev/null
+else
+  curl -s --data "text=$1" --data "chat_id=$CHAT_ID" --data "message_thread_id=$MSGTR" 'https://api.telegram.org/bot'$BOT_TOKEN'/sendMessage' > /dev/null
+fi
