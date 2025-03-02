@@ -1,5 +1,5 @@
 
-config rakitanconf 'settings'
+config telegram 'settings'
 	option telegram_token '7539902094:AAFvxXbo2v8NCLEctaCYSJqyL_62GtEWvo'
 	option chat_id '-1002257012628'
 	option message_thread_id '0'
