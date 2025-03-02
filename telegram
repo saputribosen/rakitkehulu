@@ -1,7 +1,7 @@
 #!/bin/bash
 
-CHAT_ID=$(uci get telegram.settings.group_id)
-BOT_TOKEN=$(uci get telegram.settings.bot_token)
+CHAT_ID=$(uci get telegram.settings.chat_id)
+BOT_TOKEN=$(uci get telegram.settings.telegram_token)
 MSGTR=$(uci get telegram.settings.message_thread_id)
 
 # Detect if use ask for help
