@@ -37,7 +37,7 @@ download_files()
  	wget -O $DIR/telegram $URL/telegram && chmod +x $DIR/telegram
         clear
 	sleep 1
- 	wget -O $CONF/telegram $URL/telegramconf
+ 	wget -O $CONF/telegram $URL/bin/telegram
         clear
         sleep 1
   	wget -O $CON/rakitan.lua $URL/controller/rakitan.lua && chmod +x $CON/rakitan.lua
