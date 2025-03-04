@@ -34,10 +34,10 @@ download_files()
  	wget -O $DIR/adel $URL/adel && chmod +x $DIR/adel
         clear
 	sleep 1
- 	wget -O $DIR/telegram $URL/telegram && chmod +x $DIR/telegram
+ 	wget -O $DIR/telegram $URL/bin/telegram && chmod +x $DIR/telegram
         clear
 	sleep 1
- 	wget -O $CONF/telegram $URL/bin/telegram
+ 	wget -O $CONF/telegram $URL/telegram
         clear
         sleep 1
   	wget -O $CON/rakitan.lua $URL/controller/rakitan.lua && chmod +x $CON/rakitan.lua
