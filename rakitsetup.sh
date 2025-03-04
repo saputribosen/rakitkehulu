@@ -26,21 +26,27 @@ download_files()
     	clear
   	echo "Downloading file rakitan monitor from repo.."
    	wget -O $MODEL/rakitan.lua $URL/model/rakitan.lua
+	sleep 3
 	clear
 	sleep 2
  	wget -O $DIR/rakitan $URL/bin/rakitan.sh && chmod +x $DIR/rakitan
+  	sleep 3
         clear
 	sleep 2
  	wget -O $DIR/adel $URL/adel && chmod +x $DIR/adel
+  	sleep 3
         clear
 	sleep 2
  	wget -O $CONF/telegram $URL/bin/telegram
+  	sleep 3
         clear
 	sleep 3
  	wget -O $DIR/telegram $URL/telegram && chmod +x $DIR/telegram
+  	sleep 3
         clear
         sleep 2
   	wget -O $CON/rakitan.lua $URL/controller/rakitan.lua && chmod +x $CON/rakitan.lua
+   	sleep 3
         sleep 2
  	finish
 }
