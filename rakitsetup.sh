@@ -5,7 +5,7 @@ DIR=/usr/bin
 CONF=/etc/config
 MODEL=/usr/lib/lua/luci/model/cbi
 CON=/usr/lib/lua/luci/controller
-URL=https://raw.githubusercontent.com/saputribosen/rakitkehulu/main
+URL=https://github.com/saputribosen/rakitkehulu/tree/main
 
 
 
