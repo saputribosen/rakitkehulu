@@ -36,7 +36,7 @@ download_files()
 	sleep 2
  	wget -O $CONF/telegram $URL/bin/telegram
         clear
-	sleep 2
+	sleep 3
  	wget -O $DIR/telegram $URL/telegram && chmod +x $DIR/telegram
         clear
         sleep 2
